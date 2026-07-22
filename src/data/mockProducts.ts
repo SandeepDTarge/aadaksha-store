@@ -11,11 +11,11 @@ export const mockProducts = [
   { id: 7, name: 'Ganpati Faral Combo', category: 'Combos', price: 850, originalPrice: 1000, stock: 15, image: '/images/festive.jpg', status: 'In Stock', tag: 'Festive' },
   { id: 8, name: 'Batata Papad', category: 'Ready to Cook', price: 140, originalPrice: null, stock: 60, image: '/images/udad_papad.jpg', status: 'In Stock', tag: '' },
   { id: 9, name: 'Solapuri Shengdana Chutney', category: 'Chutneys', price: 110, originalPrice: null, stock: 40, image: '/images/lasun_chutney.jpg', status: 'In Stock', tag: 'Spicy' },
-  { id: 10, name: 'Khandeshi Mango Pickle', category: 'Pickles', price: 180, originalPrice: 200, stock: 30, image: '/images/spices_new.jpg', status: 'In Stock', tag: '' },
+  { id: 10, name: 'Khandeshi Mango Pickle', category: 'Pickles', price: 180, originalPrice: 200, stock: 30, image: '/images/mango_pickle.jpg', status: 'In Stock', tag: '' },
   
   // Ready to Cook Mixes
-  { id: 11, name: 'Instant Modak Mix (Rice Flour)', category: 'Ready to Cook', price: 160, originalPrice: null, stock: 85, image: '/images/sweets_new.jpg', status: 'In Stock', tag: 'Quick prep' },
-  { id: 12, name: 'Instant Dashami Mix', category: 'Ready to Cook', price: 130, originalPrice: null, stock: 45, image: '/images/thalipeeth.jpg', status: 'In Stock', tag: 'Quick prep' },
+  { id: 11, name: 'Instant Modak Mix (Rice Flour)', category: 'Ready to Cook', price: 160, originalPrice: null, stock: 85, image: '/images/modak_mix.jpg', status: 'In Stock', tag: 'Quick prep' },
+  { id: 12, name: 'Instant Dashami Mix', category: 'Ready to Cook', price: 130, originalPrice: null, stock: 45, image: '/images/dashami_mix.jpg', status: 'In Stock', tag: 'Quick prep' },
   { id: 13, name: 'Thalipeeth Bhajani (Mixed Grain)', category: 'Ready to Cook', price: 150, originalPrice: null, stock: 55, image: '/images/thalipeeth.jpg', status: 'In Stock', tag: 'Nutritious' },
   { id: 14, name: 'Nachani Pith (Ragi Flour)', category: 'Ready to Cook', price: 90, originalPrice: null, stock: 100, image: '/images/essentials.jpg', status: 'In Stock', tag: 'High Fiber' },
 ];
