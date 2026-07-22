@@ -60,18 +60,6 @@ export default function InteractiveMaharashtraMap() {
     <div className="w-full relative bg-[#0a1913] py-20 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 relative">
         
-        <div className="text-center mb-12 relative z-20">
-          <span className="text-[var(--color-brand-saffron)] text-sm tracking-[0.3em] uppercase font-bold mb-3 block">
-            Interactive Map
-          </span>
-          <h2 className="text-3xl md:text-5xl font-mono text-white mb-6">
-            The Flavors of Maharashtra
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Hover over the glowing regions to discover the authentic spices and delicacies that originate from the diverse landscapes of our state.
-          </p>
-        </div>
-
         {/* Map Container - Aspect-video perfectly matches the 16:9 map image. No overflow-hidden so tooltips can float outside */}
         <div className="relative w-full aspect-video bg-black/20 rounded-xl border border-[var(--color-brand-gold)]/20 shadow-2xl max-w-5xl mx-auto">
           
