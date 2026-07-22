@@ -63,6 +63,13 @@ body {
   border: 1px solid var(--glass-border);
 }
 
+.glass-dark {
+  background: rgba(10, 20, 15, 0.85); /* Deep dark green/black */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(197, 160, 89, 0.3); /* Brand Gold border */
+}
+
 /* Hide scrollbar for clean UI but allow scrolling */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
