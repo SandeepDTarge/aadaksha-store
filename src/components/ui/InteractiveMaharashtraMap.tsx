@@ -81,15 +81,15 @@ export default function InteractiveMaharashtraMap() {
           </p>
         </div>
 
-        {/* Map Container - Removed overflow-hidden so tooltips don't get chopped off at the bottom */}
-        <div className="relative w-full aspect-square md:aspect-[21/9] bg-black/20 rounded-xl border border-[var(--color-brand-gold)]/20 shadow-2xl">
+        {/* Map Container - Aspect-video perfectly matches the 16:9 map image. No overflow-hidden so tooltips can float outside */}
+        <div className="relative w-full aspect-video bg-black/20 rounded-xl border border-[var(--color-brand-gold)]/20 shadow-2xl max-w-5xl mx-auto">
           
           {/* Background Map Image */}
           <Image 
             src="/images/map_bg.jpg" 
             alt="Map of Maharashtra"
             fill
-            className="object-contain opacity-80 mix-blend-screen p-4 md:p-8 rounded-xl"
+            className="object-cover opacity-80 mix-blend-screen rounded-xl"
             priority
           />
 
