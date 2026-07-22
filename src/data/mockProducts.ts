@@ -18,4 +18,8 @@ export const mockProducts = [
   { id: 12, name: 'Instant Dashami Mix', category: 'Ready to Cook', price: 130, originalPrice: null, stock: 45, image: '/images/dashami_mix.jpg', status: 'In Stock', tag: 'Quick prep' },
   { id: 13, name: 'Thalipeeth Bhajani (Mixed Grain)', category: 'Ready to Cook', price: 150, originalPrice: null, stock: 55, image: '/images/thalipeeth.jpg', status: 'In Stock', tag: 'Nutritious' },
   { id: 14, name: 'Nachani Pith (Ragi Flour)', category: 'Ready to Cook', price: 90, originalPrice: null, stock: 100, image: '/images/essentials.jpg', status: 'In Stock', tag: 'High Fiber' },
+  
+  // Traditional Sweets
+  { id: 15, name: 'Authentic Anarase (Jaggery & Rice)', category: 'Sweets', price: 250, originalPrice: 280, stock: 40, image: '/images/sweets_new.jpg', status: 'In Stock', tag: 'Diwali Special' },
+  { id: 16, name: 'Pudachi Karanji (Layered Sweet)', category: 'Sweets', price: 300, originalPrice: 350, stock: 35, image: '/images/festive.jpg', status: 'In Stock', tag: 'Diwali Special' },
 ];
