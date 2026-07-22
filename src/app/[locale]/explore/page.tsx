@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import InteractiveMaharashtraMap from '@/components/ui/InteractiveMaharashtraMap';
 
 const regions = [
   {
@@ -80,8 +81,11 @@ export default function Explore() {
         </div>
       </div>
 
+      {/* Interactive Map Section */}
+      <InteractiveMaharashtraMap />
+
       {/* Regions Timeline */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24 relative z-20">
         <div className="space-y-12">
           {regions.map((region, idx) => (
             <motion.div 
