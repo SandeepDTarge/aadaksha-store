@@ -11,7 +11,7 @@ const mapHotspots = [
     name: 'Konkan Coast',
     districts: 'Mumbai, Thane, Raigad, Ratnagiri, Sindhudurg',
     top: '60%',
-    left: '30%',
+    left: '20%',
     specialties: ['Malvani Masala', 'Kokum', 'Mango', 'Cashews'],
     color: 'var(--color-brand-saffron)'
   },
@@ -19,8 +19,8 @@ const mapHotspots = [
     id: 'khandesh',
     name: 'Khandesh',
     districts: 'Nashik, Jalgaon, Dhule, Nandurbar',
-    top: '30%',
-    left: '42%',
+    top: '25%',
+    left: '35%',
     specialties: ['Kala Masala', 'Udad Papad', 'Shengdana Chutney'],
     color: 'var(--color-brand-gold)'
   },
@@ -28,8 +28,8 @@ const mapHotspots = [
     id: 'desh',
     name: 'Desh & Kolhapur',
     districts: 'Pune, Satara, Solapur, Sangli, Kolhapur',
-    top: '75%',
-    left: '40%',
+    top: '70%',
+    left: '35%',
     specialties: ['Kolhapuri Masala', 'Organic Jaggery', 'Goda Masala', 'Bakarwadi'],
     color: 'var(--color-brand-saffron)'
   },
@@ -37,8 +37,8 @@ const mapHotspots = [
     id: 'marathwada',
     name: 'Marathwada',
     districts: 'Chh. Sambhajinagar, Nanded, Latur, Beed',
-    top: '60%',
-    left: '55%',
+    top: '55%',
+    left: '50%',
     specialties: ['Jowar Flour', 'Peanut Chutney', 'Hurda'],
     color: 'var(--color-brand-saffron)'
   },
@@ -47,7 +47,7 @@ const mapHotspots = [
     name: 'Vidarbha',
     districts: 'Nagpur, Amravati, Chandrapur, Gadchiroli',
     top: '40%',
-    left: '75%',
+    left: '65%',
     specialties: ['Saoji Masala', 'Orange Barfi', 'Tarri Poha'],
     color: 'var(--color-brand-gold)'
   }
