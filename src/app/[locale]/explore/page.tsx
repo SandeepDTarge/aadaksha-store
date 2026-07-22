@@ -17,20 +17,11 @@ const regions = [
     color: 'from-teal-900 to-[var(--color-brand-green)]'
   },
   {
-    id: 'kolhapur',
-    name: 'Kolhapur',
-    title: 'The Fiery Soul',
-    description: 'Known for its rich, robust, and unapologetically spicy cuisine. Kolhapur brings us the legendary Lavangi mirchi, world-class organic jaggery, and the deeply flavorful Kolhapuri Masala.',
-    specialties: ['Kolhapuri Masala', 'Organic Jaggery (Gul)', 'Spicy Lasun Chutney'],
-    image: '/images/spices.jpg',
-    color: 'from-red-900 to-[var(--color-brand-maroon)]'
-  },
-  {
     id: 'desh',
-    name: 'Pune & Desh',
+    name: 'Desh & Kolhapur',
     title: 'The Cultural Heartland',
-    description: 'The cultural capital of Maharashtra offers a balanced, subtly sweet and spicy flavor profile. The birthplace of the aromatic Goda Masala, crispy Bakarwadi, and the festive Puran Poli.',
-    specialties: ['Goda Masala', 'Puran Poli Mix', 'Thalipeeth Bhajani', 'Poha Chivda'],
+    description: 'The cultural capital of Maharashtra offers a balanced, subtly sweet and spicy flavor profile.',
+    specialties: ['Kolhapuri Masala', 'Organic Jaggery (Gul)', 'Goda Masala', 'Puran Poli Mix'],
     image: '/images/sweets.jpg',
     color: 'from-orange-900 to-[var(--color-brand-saffron)]'
   },

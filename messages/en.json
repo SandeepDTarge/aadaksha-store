@@ -49,17 +49,11 @@
         "description": "Stretching along the Arabian Sea, the Konkan region is famous for its abundant use of coconut, kokum, and the fiery Malvani Masala. Home to the world-renowned Alphonso mangoes and cashews.",
         "spec1": "Malvani Masala", "spec2": "Kokum Agal", "spec3": "Cashews", "spec4": "Mango Pulp"
       },
-      "kolhapur": {
-        "name": "Kolhapur",
-        "title": "The Fiery Soul",
-        "description": "Known for its rich, robust, and unapologetically spicy cuisine. Kolhapur brings us the legendary Lavangi mirchi, world-class organic jaggery, and the deeply flavorful Kolhapuri Masala.",
-        "spec1": "Kolhapuri Masala", "spec2": "Organic Jaggery (Gul)", "spec3": "Spicy Lasun Chutney", "spec4": "Red Chilli Powder"
-      },
       "desh": {
-        "name": "Pune & Desh",
-        "title": "The Cultural Heartland",
-        "description": "The cultural capital of Maharashtra offers a balanced, subtly sweet and spicy flavor profile. The birthplace of the aromatic Goda Masala, crispy Bakarwadi, and the festive Puran Poli.",
-        "spec1": "Goda Masala", "spec2": "Puran Poli Mix", "spec3": "Thalipeeth Bhajani", "spec4": "Poha Chivda"
+        "name": "Desh & Kolhapur",
+        "title": "The Cultural & Fiery Heartland",
+        "description": "The cultural capital blending subtly sweet flavors with unabashedly spicy cuisine. The birthplace of aromatic Goda Masala, crispy Bakarwadi, and the legendary Kolhapuri Masala.",
+        "spec1": "Kolhapuri Masala", "spec2": "Organic Jaggery (Gul)", "spec3": "Goda Masala", "spec4": "Puran Poli Mix"
       },
       "khandesh": {
         "name": "Khandesh",
