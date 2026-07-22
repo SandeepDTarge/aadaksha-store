@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+  /* Core Brand Colors */
+  --color-brand-cream: #FDFBF7;
+  --color-brand-green: #1B3B28;
+  --color-brand-maroon: #5E1A1A;
+  --color-brand-saffron: #D96C1B;
+  --color-brand-gold: #C5A059;
+  --color-brand-wood: #8B5A2B;
+  
+  /* UI Colors */
+  --background: var(--color-brand-cream);
+  --foreground: var(--color-brand-green);
+  --muted: #E8E4D9;
+  --muted-foreground: #6B705C;
+  
+  /* Glassmorphism Defaults */
+  --glass-bg: rgba(253, 251, 247, 0.7);
+  --glass-border: rgba(27, 59, 40, 0.1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cream: var(--color-brand-cream);
+  --color-green: var(--color-brand-green);
+  --color-maroon: var(--color-brand-maroon);
+  --color-saffron: var(--color-brand-saffron);
+  --color-gold: var(--color-brand-gold);
+  --color-wood: var(--color-brand-wood);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0E1611;
+    --foreground: #FDFBF7;
+    --muted: #1A261E;
+    --muted-foreground: #A3A895;
+    
+    --glass-bg: rgba(14, 22, 17, 0.7);
+    --glass-border: rgba(253, 251, 247, 0.1);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Premium Utilities */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Hide scrollbar for clean UI but allow scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

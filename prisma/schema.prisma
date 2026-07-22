@@ -1,0 +1,248 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ----------------------------------------------------------------------
+// USER MANAGEMENT & NEXTAUTH
+// ----------------------------------------------------------------------
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  role          Role      @default(USER)
+  rewardPoints  Int       @default(0)
+  
+  accounts      Account[]
+  sessions      Session[]
+  orders        Order[]
+  wishlist      Product[] @relation("Wishlist")
+  addresses     Address[]
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Address {
+  id          String   @id @default(cuid())
+  userId      String
+  street      String
+  city        String
+  state       String
+  postalCode  String
+  country     String   @default("India")
+  isDefault   Boolean  @default(false)
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+// ----------------------------------------------------------------------
+// E-COMMERCE: PRODUCTS & CATEGORIES
+// ----------------------------------------------------------------------
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  slug        String    @unique
+  description String?
+  image       String?
+  products    Product[]
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Product {
+  id            String   @id @default(cuid())
+  name          String
+  slug          String   @unique
+  description   String   @db.Text
+  price         Decimal  @db.Decimal(10, 2)
+  comparePrice  Decimal? @db.Decimal(10, 2)
+  stock         Int      @default(0)
+  isOrganic     Boolean  @default(false)
+  isFeatured    Boolean  @default(false)
+  
+  // Heritage / Story
+  originStory   String?  @db.Text
+  farmerStory   String?  @db.Text
+  shelfLife     String?
+  ingredients   String?
+  nutritionInfo String?  @db.Text
+
+  // Assets
+  images        String[]
+  model360Url   String?
+  
+  // Relations
+  categoryId    String
+  category      Category @relation(fields: [categoryId], references: [id])
+  regionId      String?
+  region        Region?  @relation(fields: [regionId], references: [id])
+  
+  wishlistedBy  User[]   @relation("Wishlist")
+  orderItems    OrderItem[]
+  recipes       RecipeProduct[]
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ----------------------------------------------------------------------
+// E-COMMERCE: ORDERS & CHECKOUT
+// ----------------------------------------------------------------------
+
+model Order {
+  id            String      @id @default(cuid())
+  userId        String?
+  user          User?       @relation(fields: [userId], references: [id])
+  status        OrderStatus @default(PENDING)
+  totalAmount   Decimal     @db.Decimal(10, 2)
+  shippingFees  Decimal     @db.Decimal(10, 2)
+  paymentMethod String      // STRIPE, RAZORPAY, COD
+  paymentStatus String      // PAID, PENDING, FAILED
+  transactionId String?
+  
+  shippingAddr  String      @db.Text
+  
+  items         OrderItem[]
+  
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Decimal  @db.Decimal(10, 2)
+}
+
+enum OrderStatus {
+  PENDING
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+// ----------------------------------------------------------------------
+// HERITAGE: EXPLORE MAHARASHTRA (REGIONS)
+// ----------------------------------------------------------------------
+
+model Region {
+  id          String   @id @default(cuid())
+  name        String   @unique // Konkan, Pune, Kolhapur, etc.
+  slug        String   @unique
+  description String   @db.Text
+  history     String?  @db.Text
+  culture     String?  @db.Text
+  festivals   String[] 
+  heroImage   String?
+  mapCoordX   Float?
+  mapCoordY   Float?
+
+  products    Product[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ----------------------------------------------------------------------
+// RECIPES & BLOG
+// ----------------------------------------------------------------------
+
+model Recipe {
+  id            String   @id @default(cuid())
+  title         String
+  slug          String   @unique
+  description   String   @db.Text
+  prepTime      Int      // In minutes
+  cookTime      Int      // In minutes
+  servings      Int
+  difficulty    String   // Easy, Medium, Hard
+  category      String   // Breakfast, Lunch, Festival, etc.
+  
+  instructions  String   @db.Text
+  videoUrl      String?
+  image         String?
+
+  products      RecipeProduct[]
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model RecipeProduct {
+  recipeId  String
+  recipe    Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@id([recipeId, productId])
+}
+
+model Blog {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String?
+  content     String   @db.Text
+  author      String
+  tags        String[]
+  image       String?
+  published   Boolean  @default(false)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

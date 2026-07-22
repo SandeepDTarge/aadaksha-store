@@ -1,0 +1,105 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "shop": "Shop",
+    "explore": "Explore",
+    "about": "About"
+  },
+  "Home": {
+    "brand_subtitle": "Authentic Maharashtrian",
+    "hero_tag": "Aadaksha",
+    "hero_title": "Taste the Heritage.\nFeel the Culture.",
+    "hero_desc": "Premium authentic Maharashtrian delicacies, crafted with love and delivered worldwide.",
+    "btn_shop": "Shop Collections",
+    "btn_explore": "Explore Regions",
+    "scroll": "Scroll to discover",
+    "curated": "Curated Collections",
+    "essence": "The Essence of Maharashtra",
+    "faral_region": "Pune & Desh",
+    "faral_title": "Festive Faral",
+    "faral_desc": "Crispy Chakli, golden Karanji, and spicy Chivda perfectly crafted for your celebrations.",
+    "faral_link": "Shop Faral \u2192",
+    "spices_region": "Khandesh & Kolhapur",
+    "spices_title": "Authentic Spices",
+    "spices_desc": "Hand-pounded, sun-dried, and traditionally blended spices that bring the fiery soul of Maharashtra to your kitchen.",
+    "spices_link": "Shop Spices \u2192",
+    "sweets_region": "Pune & Konkan",
+    "sweets_title": "Festive Sweets",
+    "sweets_desc": "Melt-in-mouth Puran Poli, Modaks, and Ladoos made with pure A2 ghee, organic jaggery, and generations of love.",
+    "sweets_link": "Shop Sweets \u2192",
+    "essentials_region": "Across Maharashtra",
+    "essentials_title": "Daily Essentials",
+    "essentials_desc": "Wholesome flours, rustic pickles, and fiery chutneys to complete your everyday Maharashtrian meal.",
+    "essentials_link": "Shop Essentials \u2192",
+    "story_title": "A Taste of Home, No Matter Where You Roam",
+    "story_p1": "Many Maharashtrians travel far from home, settling in other cities or crossing oceans. But the heart always yearns for the taste of Aai's (mother's) handmade Puran Poli, the fiery kick of Kolhapuri masala, or the satisfying crunch of Diwali Faral.",
+    "story_p2": "Aadaksha was born from this exact emotion—to bridge the miles and connect you back to your motherland. We bring you the most authentic, traditionally crafted Maharashtrian delicacies, straight from the rural villages of Maharashtra to your doorstep. Every bite is a memory, every aroma is a journey home.",
+    "btn_shop_now": "Shop Authentic Flavors"
+  },
+  "Explore": {
+    "subtitle": "A Culinary Journey",
+    "title": "Explore Maharashtra",
+    "description": "Every district has a story. Every recipe holds a legacy. Travel through the diverse landscapes of Maharashtra through its most authentic flavors.",
+    "specialties_title": "Regional Specialties",
+    "btn_taste": "Taste",
+    "regions": {
+      "konkan": {
+        "name": "Konkan Coast",
+        "title": "The Coastal Heritage",
+        "description": "Stretching along the Arabian Sea, the Konkan region is famous for its abundant use of coconut, kokum, and the fiery Malvani Masala. Home to the world-renowned Alphonso mangoes and cashews.",
+        "spec1": "Malvani Masala", "spec2": "Kokum Agal", "spec3": "Cashews", "spec4": "Mango Pulp"
+      },
+      "kolhapur": {
+        "name": "Kolhapur",
+        "title": "The Fiery Soul",
+        "description": "Known for its rich, robust, and unapologetically spicy cuisine. Kolhapur brings us the legendary Lavangi mirchi, world-class organic jaggery, and the deeply flavorful Kolhapuri Masala.",
+        "spec1": "Kolhapuri Masala", "spec2": "Organic Jaggery (Gul)", "spec3": "Spicy Lasun Chutney", "spec4": "Red Chilli Powder"
+      },
+      "desh": {
+        "name": "Pune & Desh",
+        "title": "The Cultural Heartland",
+        "description": "The cultural capital of Maharashtra offers a balanced, subtly sweet and spicy flavor profile. The birthplace of the aromatic Goda Masala, crispy Bakarwadi, and the festive Puran Poli.",
+        "spec1": "Goda Masala", "spec2": "Puran Poli Mix", "spec3": "Thalipeeth Bhajani", "spec4": "Poha Chivda"
+      },
+      "khandesh": {
+        "name": "Khandesh",
+        "title": "The Rustic North",
+        "description": "A hot and dry region that produces some of the most intense and smoky flavors. Famous for its Kala Masala, peanut-based curries, and perfectly crisp Udad papads.",
+        "spec1": "Kala Masala", "spec2": "Shengdana Chutney", "spec3": "Udad Papad", "spec4": "Bhadang"
+      }
+    }
+  },
+  "Shop": {
+    "title": "Authentic Collections",
+    "subtitle": "Our Heritage",
+    "filters": "Filters",
+    "sort": "Sort By",
+    "quick_add": "Quick Add",
+    "price": "\u20b9",
+    "categories": {
+      "Festive Specials": "Festive Specials",
+      "Papad": "Papad",
+      "Chutneys": "Chutneys",
+      "Masalas": "Masalas",
+      "Ready Mixes": "Ready Mixes",
+      "Snacks": "Snacks",
+      "Sweets": "Sweets",
+      "Flours": "Flours"
+    },
+    "products": {
+      "Premium Goda Masala": "Premium Goda Masala",
+      "Authentic Thalipeeth Bhajani": "Authentic Thalipeeth Bhajani",
+      "Spicy Lasun Chutney": "Spicy Lasun Chutney",
+      "Crispy Kurdai": "Crispy Kurdai",
+      "Udad Papad (Handmade)": "Udad Papad (Handmade)",
+      "Premium Puran Poli Mix": "Premium Puran Poli Mix",
+      "Authentic Sandage (Spiced Lentils)": "Authentic Sandage (Spiced Lentils)",
+      "Hand-rolled Gavhachi Shevaya": "Hand-rolled Gavhachi Shevaya",
+      "Diwali Faral Combo (Long Shelf Life)": "Diwali Faral Combo (Long Shelf Life)",
+      "Crispy Bhajani Chakli": "Crispy Bhajani Chakli",
+      "Sweet Shankarpali": "Sweet Shankarpali",
+      "Golden Besan Ladoo": "Golden Besan Ladoo",
+      "Traditional Metkut": "Traditional Metkut"
+    }
+  }
+}
