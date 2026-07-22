@@ -65,7 +65,7 @@ export default function InteractiveMaharashtraMap() {
           
           {/* Background Map Image */}
           <Image 
-            src="/images/map_bg.jpg" 
+            src="/images/map_bg.webp" 
             alt="Map of Maharashtra"
             fill
             className="object-cover opacity-80 mix-blend-screen rounded-xl"
