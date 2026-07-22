@@ -42,6 +42,24 @@ const regions = [
     specialties: ['Kala Masala', 'Shengdana Chutney', 'Udad Papad'],
     image: '/images/udad_papad.jpg',
     color: 'from-[var(--color-brand-wood)] to-amber-900'
+  },
+  {
+    id: 'marathwada',
+    name: 'Marathwada',
+    title: 'The Heartland Heritage',
+    description: 'A deeply historical region offering rustic, hearty meals. Famous for its Jowar Bhakris, Hurda parties, and rich peanut and garlic-based chutneys.',
+    specialties: ['Jowar Flour', 'Peanut Chutney', 'Hurda', 'Shenga Poli'],
+    image: '/images/thalipeeth.jpg',
+    color: 'from-amber-900 to-orange-900'
+  },
+  {
+    id: 'vidarbha',
+    name: 'Vidarbha',
+    title: 'The Eastern Spice Route',
+    description: 'Known for the famously fiery Saoji cuisine and the citrusy sweetness of Nagpur oranges. A land of intense curries and unique festive dishes.',
+    specialties: ['Saoji Masala', 'Orange Barfi', 'Tarri Poha', 'Nagpuri Vada Bhat'],
+    image: '/images/spices_new.jpg',
+    color: 'from-red-950 to-red-800'
   }
 ];
 

@@ -66,6 +66,18 @@
         "title": "The Rustic North",
         "description": "A hot and dry region that produces some of the most intense and smoky flavors. Famous for its Kala Masala, peanut-based curries, and perfectly crisp Udad papads.",
         "spec1": "Kala Masala", "spec2": "Shengdana Chutney", "spec3": "Udad Papad", "spec4": "Bhadang"
+      },
+      "marathwada": {
+        "name": "Marathwada",
+        "title": "The Heartland Heritage",
+        "description": "A deeply historical region offering rustic, hearty meals. Famous for its Jowar Bhakris, Hurda parties, and rich peanut and garlic-based chutneys.",
+        "spec1": "Jowar Flour", "spec2": "Peanut Chutney", "spec3": "Hurda", "spec4": "Shenga Poli"
+      },
+      "vidarbha": {
+        "name": "Vidarbha",
+        "title": "The Eastern Spice Route",
+        "description": "Known for the famously fiery Saoji cuisine and the citrusy sweetness of Nagpur oranges. A land of intense curries and unique festive dishes.",
+        "spec1": "Saoji Masala", "spec2": "Orange Barfi", "spec3": "Tarri Poha", "spec4": "Nagpuri Vada Bhat"
       }
     }
   },

@@ -5,38 +5,59 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// Approximate positions on our stylized background map
 const mapHotspots = [
   {
     id: 'konkan',
     name: 'Konkan Coast',
-    top: '40%',
-    left: '25%',
+    districts: 'Mumbai, Thane, Raigad, Ratnagiri, Sindhudurg',
+    top: '55%',
+    left: '12%',
     specialties: ['Malvani Masala', 'Kokum', 'Mango', 'Cashews'],
     color: 'var(--color-brand-saffron)'
   },
   {
     id: 'khandesh',
     name: 'Khandesh',
+    districts: 'Nashik, Jalgaon, Dhule, Nandurbar',
     top: '20%',
-    left: '45%',
+    left: '30%',
     specialties: ['Kala Masala', 'Udad Papad', 'Shengdana Chutney'],
     color: 'var(--color-brand-gold)'
   },
   {
     id: 'desh',
     name: 'Pune & Desh',
-    top: '45%',
-    left: '45%',
+    districts: 'Pune, Satara, Solapur, Sangli',
+    top: '50%',
+    left: '30%',
     specialties: ['Goda Masala', 'Puran Poli Mix', 'Bakarwadi'],
     color: 'var(--color-brand-saffron)'
   },
   {
     id: 'kolhapur',
     name: 'Kolhapur',
-    top: '75%',
-    left: '35%',
+    districts: 'Kolhapur District',
+    top: '80%',
+    left: '25%',
     specialties: ['Kolhapuri Masala', 'Organic Jaggery', 'Lavangi Mirchi'],
+    color: 'var(--color-brand-gold)'
+  },
+  {
+    id: 'marathwada',
+    name: 'Marathwada',
+    districts: 'Chh. Sambhajinagar, Nanded, Latur, Beed',
+    top: '55%',
+    left: '50%',
+    specialties: ['Jowar Flour', 'Peanut Chutney', 'Hurda'],
+    color: 'var(--color-brand-saffron)'
+  },
+  {
+    id: 'vidarbha',
+    name: 'Vidarbha',
+    districts: 'Nagpur, Amravati, Chandrapur, Gadchiroli',
+    top: '40%',
+    left: '80%',
+    specialties: ['Saoji Masala', 'Orange Barfi', 'Tarri Poha'],
     color: 'var(--color-brand-gold)'
   }
 ];
@@ -60,15 +81,15 @@ export default function InteractiveMaharashtraMap() {
           </p>
         </div>
 
-        {/* Map Container */}
-        <div className="relative w-full aspect-video md:aspect-[21/9] bg-black/20 rounded-xl overflow-hidden border border-[var(--color-brand-gold)]/20 shadow-2xl">
+        {/* Map Container - Removed overflow-hidden so tooltips don't get chopped off at the bottom */}
+        <div className="relative w-full aspect-square md:aspect-[21/9] bg-black/20 rounded-xl border border-[var(--color-brand-gold)]/20 shadow-2xl">
           
           {/* Background Map Image */}
           <Image 
             src="/images/map_bg.jpg" 
             alt="Map of Maharashtra"
             fill
-            className="object-cover opacity-80 mix-blend-screen"
+            className="object-contain opacity-80 mix-blend-screen p-4 md:p-8 rounded-xl"
             priority
           />
 
@@ -102,11 +123,14 @@ export default function InteractiveMaharashtraMap() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-8 left-1/2 -translate-x-1/2 w-64 glass-dark rounded-lg p-5 shadow-2xl border border-white/20 pointer-events-auto z-50"
+                    className={`absolute ${Number(region.top.replace('%','')) > 60 ? 'bottom-8' : 'top-8'} left-1/2 -translate-x-1/2 w-64 glass-dark rounded-lg p-5 shadow-[0_0_30px_rgba(0,0,0,0.8)] border border-[var(--color-brand-gold)]/30 pointer-events-auto z-50`}
                   >
-                    <h3 className="text-xl font-bold font-mono text-[var(--color-brand-saffron)] mb-2 border-b border-white/10 pb-2">
+                    <h3 className="text-xl font-bold font-mono text-white mb-1">
                       {region.name}
                     </h3>
+                    <p className="text-[10px] text-[var(--color-brand-saffron)] uppercase tracking-wider mb-3 border-b border-white/10 pb-2">
+                      {region.districts}
+                    </p>
                     <p className="text-xs text-gray-300 uppercase tracking-widest font-semibold mb-3">Famous For:</p>
                     <ul className="space-y-2 mb-4">
                       {region.specialties.map((item, idx) => (
