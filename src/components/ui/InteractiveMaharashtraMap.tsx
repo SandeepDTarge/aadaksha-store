@@ -9,7 +9,6 @@ const mapHotspots = [
   {
     id: 'konkan',
     name: 'Konkan Coast',
-    districts: 'Mumbai, Thane, Raigad, Ratnagiri, Sindhudurg',
     top: '60%',
     left: '22%',
     specialties: ['Malvani Masala', 'Kokum', 'Mango', 'Cashews'],
@@ -18,7 +17,6 @@ const mapHotspots = [
   {
     id: 'khandesh',
     name: 'Khandesh',
-    districts: 'Nashik, Jalgaon, Dhule, Nandurbar',
     top: '38%',
     left: '38%',
     specialties: ['Kala Masala', 'Udad Papad', 'Shengdana Chutney'],
@@ -27,7 +25,6 @@ const mapHotspots = [
   {
     id: 'desh',
     name: 'Desh & Kolhapur',
-    districts: 'Pune, Satara, Solapur, Sangli, Kolhapur',
     top: '65%',
     left: '40%',
     specialties: ['Kolhapuri Masala', 'Organic Jaggery', 'Goda Masala', 'Bakarwadi'],
@@ -36,7 +33,6 @@ const mapHotspots = [
   {
     id: 'marathwada',
     name: 'Marathwada',
-    districts: 'Chh. Sambhajinagar, Nanded, Latur, Beed',
     top: '55%',
     left: '60%',
     specialties: ['Jowar Flour', 'Peanut Chutney', 'Hurda'],
@@ -45,7 +41,6 @@ const mapHotspots = [
   {
     id: 'vidarbha',
     name: 'Vidarbha',
-    districts: 'Nagpur, Amravati, Chandrapur, Gadchiroli',
     top: '30%',
     left: '75%',
     specialties: ['Saoji Masala', 'Orange Barfi', 'Tarri Poha'],
@@ -104,12 +99,9 @@ export default function InteractiveMaharashtraMap() {
                     transition={{ duration: 0.2 }}
                     className={`absolute ${Number(region.top.replace('%','')) > 60 ? 'bottom-8' : 'top-8'} left-1/2 -translate-x-1/2 w-64 glass-dark rounded-lg p-5 shadow-[0_0_30px_rgba(0,0,0,0.8)] border border-[var(--color-brand-gold)]/30 pointer-events-auto z-50`}
                   >
-                    <h3 className="text-xl font-bold font-mono text-white mb-1">
+                    <h3 className="text-xl font-bold font-mono text-white mb-2 border-b border-white/10 pb-2">
                       {region.name}
                     </h3>
-                    <p className="text-[10px] text-[var(--color-brand-saffron)] uppercase tracking-wider mb-3 border-b border-white/10 pb-2">
-                      {region.districts}
-                    </p>
                     <p className="text-xs text-gray-300 uppercase tracking-widest font-semibold mb-3">Famous For:</p>
                     <ul className="space-y-2 mb-4">
                       {region.specialties.map((item, idx) => (
