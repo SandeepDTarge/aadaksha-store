@@ -103,12 +103,9 @@ export default function ProductClient({ product, relatedProducts }: { product: P
                 >
                   <Minus className="w-4 h-4" />
                 </button>
-                <input 
-                  type="number" 
-                  value={quantity}
-                  readOnly
-                  className="flex-1 text-center font-bold text-[var(--color-brand-green)] bg-transparent focus:outline-none"
-                />
+                <div className="flex-1 flex items-center justify-center font-bold text-[var(--color-brand-green)] bg-transparent">
+                  {quantity}
+                </div>
                 <button 
                   onClick={() => setQuantity(quantity + 1)}
                   className="w-10 h-full flex items-center justify-center hover:bg-gray-50 transition-colors text-gray-600"
