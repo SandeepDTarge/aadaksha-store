@@ -43,7 +43,7 @@ export default function ProductClient({ product, relatedProducts }: { product: P
           
           {/* Product Image */}
           <div className="w-full lg:w-1/2">
-            <div className="relative aspect-square w-full rounded-sm overflow-hidden bg-white shadow-2xl">
+            <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] w-full rounded-sm overflow-hidden bg-white shadow-2xl">
               <Image 
                 src={product.image} 
                 alt={product.name}
@@ -67,7 +67,7 @@ export default function ProductClient({ product, relatedProducts }: { product: P
               )}
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-mono text-[var(--color-brand-green)] mb-4 leading-tight">
+            <h1 className="text-3xl md:text-4xl font-mono text-[var(--color-brand-green)] mb-4 leading-tight">
               {product.name}
             </h1>
             
@@ -120,24 +120,23 @@ export default function ProductClient({ product, relatedProducts }: { product: P
               <button 
                 onClick={handleAddToCart}
                 disabled={product.stock === 0}
-                className="flex-1 bg-[var(--color-brand-green)] hover:bg-[var(--color-brand-saffron)] text-white h-14 flex items-center justify-center gap-3 font-bold uppercase tracking-widest transition-colors rounded-sm shadow-xl disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className="flex-1 bg-[var(--color-brand-green)] hover:bg-[var(--color-brand-saffron)] text-white h-14 flex items-center justify-center font-bold text-sm transition-colors rounded-sm shadow-xl disabled:bg-gray-300 disabled:cursor-not-allowed"
               >
-                <ShoppingBag className="w-5 h-5" />
                 {product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
               </button>
             </div>
 
             {/* Guarantees */}
-            <div className="grid grid-cols-3 gap-4 border-t border-[var(--color-brand-gold)]/30 pt-8">
-              <div className="flex flex-col items-center text-center gap-2">
+            <div className="flex flex-wrap justify-between md:justify-start md:gap-12 border-t border-[var(--color-brand-gold)]/30 pt-8 mt-4">
+              <div className="flex flex-col items-center text-center gap-2 mb-4">
                 <ShieldCheck className="w-6 h-6 text-[var(--color-brand-saffron)]" />
                 <span className="text-xs text-gray-600 font-medium">100% Authentic</span>
               </div>
-              <div className="flex flex-col items-center text-center gap-2">
+              <div className="flex flex-col items-center text-center gap-2 mb-4">
                 <Leaf className="w-6 h-6 text-[var(--color-brand-saffron)]" />
                 <span className="text-xs text-gray-600 font-medium">No Preservatives</span>
               </div>
-              <div className="flex flex-col items-center text-center gap-2">
+              <div className="flex flex-col items-center text-center gap-2 mb-4">
                 <Truck className="w-6 h-6 text-[var(--color-brand-saffron)]" />
                 <span className="text-xs text-gray-600 font-medium">Worldwide Shipping</span>
               </div>
@@ -153,7 +152,7 @@ export default function ProductClient({ product, relatedProducts }: { product: P
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {relatedProducts.map((p) => (
                 <Link href={`/shop/${p.slug}`} key={p.id} className="group cursor-pointer">
-                  <div className="relative aspect-square w-full overflow-hidden rounded-sm mb-4 shadow-md group-hover:shadow-xl transition-shadow bg-gray-100">
+                  <div className="relative h-64 w-full overflow-hidden rounded-sm mb-4 shadow-md group-hover:shadow-xl transition-shadow bg-gray-100">
                     <Image 
                       src={p.image} 
                       alt={p.name}
