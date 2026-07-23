@@ -58,7 +58,7 @@ export default function Navbar() {
           </div>
 
           {/* Icons & Language */}
-          <div className="flex items-center space-x-4 md:space-x-6 h-full">
+          <div className="flex items-center space-x-4 md:space-x-6 h-full text-[var(--color-brand-green)]">
             
             {/* Language Switcher (Desktop) */}
             <div className="relative group h-full hidden md:flex items-center">
