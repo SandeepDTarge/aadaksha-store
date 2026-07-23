@@ -97,7 +97,7 @@ export default function InteractiveMaharashtraMap() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className={`absolute ${Number(region.top.replace('%','')) > 60 ? 'bottom-8' : 'top-8'} left-1/2 -translate-x-1/2 w-64 glass-dark rounded-lg p-5 shadow-[0_0_30px_rgba(0,0,0,0.8)] border border-[var(--color-brand-gold)]/30 pointer-events-auto z-50`}
+                    className={`fixed bottom-4 left-4 right-4 z-50 sm:absolute sm:w-64 sm:right-auto sm:left-1/2 sm:-translate-x-1/2 ${Number(region.top.replace('%','')) > 60 ? 'sm:bottom-8 sm:top-auto' : 'sm:top-8 sm:bottom-auto'} glass-dark rounded-lg p-5 shadow-[0_0_30px_rgba(0,0,0,0.8)] border border-[var(--color-brand-gold)]/30 pointer-events-auto`}
                   >
                     <h3 className="text-xl font-bold font-mono text-white mb-2 border-b border-white/10 pb-2">
                       {region.name}
