@@ -13,6 +13,7 @@ export default function Navbar() {
   const cartCount = useCartStore((state) => state.getCartCount());
   const currency = useCartStore((state) => state.currency);
   const setCurrency = useCartStore((state) => state.setCurrency);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -57,10 +58,10 @@ export default function Navbar() {
           </div>
 
           {/* Icons & Language */}
-          <div className="flex items-center space-x-6 h-full">
+          <div className="flex items-center space-x-4 md:space-x-6 h-full">
             
-            {/* Language Switcher */}
-            <div className="relative group h-full flex items-center">
+            {/* Language Switcher (Desktop) */}
+            <div className="relative group h-full hidden md:flex items-center">
               <button className="text-xs font-bold tracking-widest uppercase hover:text-[var(--color-brand-saffron)] flex items-center gap-1 transition-colors">
                 <Globe className="w-4 h-4" /> EN
               </button>
@@ -73,8 +74,8 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Currency Switcher */}
-            <div className="relative group h-full flex items-center">
+            {/* Currency Switcher (Desktop) */}
+            <div className="relative group h-full hidden md:flex items-center">
               <button className="text-xs font-bold tracking-widest uppercase hover:text-[var(--color-brand-saffron)] flex items-center gap-1 transition-colors">
                 {mounted ? currency : 'INR'}
               </button>
@@ -109,13 +110,57 @@ export default function Navbar() {
             </Link>
             
             {/* Mobile menu button */}
-            <button className="md:hidden hover:text-[var(--color-brand-saffron)] transition-colors">
+            <button 
+              className="md:hidden hover:text-[var(--color-brand-saffron)] transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
               <Menu className="w-6 h-6" />
             </button>
           </div>
 
         </div>
       </div>
+
+      {/* Mobile Menu Drawer */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-20 left-0 w-full bg-white shadow-2xl border-t border-[var(--color-brand-gold)]/20 p-5 flex flex-col gap-4">
+          <Link href="/shop" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-wider text-gray-800">{t('shop')}</Link>
+          <Link href="/explore" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-wider text-gray-800">{t('explore')}</Link>
+          <Link href="/recipes" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-wider text-gray-800">Recipes</Link>
+          <Link href="/our-story" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-wider text-gray-800">{t('about')}</Link>
+          
+          <div className="h-px bg-gray-200 my-2" />
+          
+          <div className="flex flex-col gap-3">
+            <span className="text-xs text-gray-500 font-bold uppercase">Language</span>
+            <div className="flex gap-4">
+              <a href="/en" className="text-sm font-medium hover:text-[var(--color-brand-saffron)] text-gray-800">EN</a>
+              <a href="/mr" className="text-sm font-medium hover:text-[var(--color-brand-saffron)] text-gray-800">MR</a>
+              <a href="/hi" className="text-sm font-medium hover:text-[var(--color-brand-saffron)] text-gray-800">HI</a>
+            </div>
+          </div>
+
+          <div className="h-px bg-gray-200 my-2" />
+
+          <div className="flex flex-col gap-3">
+            <span className="text-xs text-gray-500 font-bold uppercase">Currency</span>
+            <div className="flex flex-wrap gap-4">
+              {(['INR', 'USD', 'AED', 'GBP', 'AUD'] as const).map((curr) => (
+                <button 
+                  key={curr}
+                  onClick={() => {
+                    setCurrency(curr);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`text-sm font-medium ${currency === curr ? 'text-[var(--color-brand-saffron)] font-bold' : 'text-gray-800'}`}
+                >
+                  {curr}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
