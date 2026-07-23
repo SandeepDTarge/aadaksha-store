@@ -43,7 +43,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-8">
               <Link href="/shop" className="text-sm font-medium hover:text-[var(--color-brand-saffron)] transition-colors">
                 {t('shop')}
               </Link>
@@ -63,7 +63,7 @@ export default function Navbar() {
           <div className="flex items-center space-x-4 md:space-x-6 h-full text-[var(--color-brand-green)]">
             
             {/* Language Switcher (Desktop/Tablet) */}
-            <div className="relative h-full hidden lg:flex items-center">
+            <div className="relative h-full hidden md:flex items-center">
               <button 
                 className="text-xs font-bold tracking-widest uppercase hover:text-[var(--color-brand-saffron)] flex items-center gap-1 transition-colors"
                 onClick={() => { setIsLangMenuOpen(!isLangMenuOpen); setIsCurrMenuOpen(false); }}
@@ -80,7 +80,7 @@ export default function Navbar() {
             </div>
 
             {/* Currency Switcher (Desktop/Tablet) */}
-            <div className="relative h-full hidden lg:flex items-center">
+            <div className="relative h-full hidden md:flex items-center">
               <button 
                 className="text-xs font-bold tracking-widest uppercase hover:text-[var(--color-brand-saffron)] flex items-center gap-1 transition-colors"
                 onClick={() => { setIsCurrMenuOpen(!isCurrMenuOpen); setIsLangMenuOpen(false); }}
@@ -119,7 +119,7 @@ export default function Navbar() {
             
             {/* Mobile menu button */}
             <button 
-              className="lg:hidden hover:text-[var(--color-brand-saffron)] transition-colors"
+              className="md:hidden hover:text-[var(--color-brand-saffron)] transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <Menu className="w-6 h-6" />
@@ -131,7 +131,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-20 left-0 w-full bg-white shadow-2xl border-t border-[var(--color-brand-gold)]/20 p-5 flex flex-col gap-4">
+        <div className="md:hidden absolute top-20 left-0 w-full bg-white shadow-2xl border-t border-[var(--color-brand-gold)]/20 p-5 flex flex-col gap-4">
           <Link href="/shop" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-wider text-gray-800">{t('shop')}</Link>
           <Link href="/explore" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-wider text-gray-800">{t('explore')}</Link>
           <Link href="/recipes" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold uppercase tracking-wider text-gray-800">Recipes</Link>
