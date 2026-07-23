@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { useTranslations, useMessages } from 'next-intl';
 import { useCartStore } from '@/store/useCartStore';
@@ -24,6 +25,8 @@ export default function Shop() {
   const messages = useMessages() as any;
   const addItem = useCartStore((state) => state.addItem);
   const currency = useCartStore((state) => state.currency);
+  const searchParams = useSearchParams();
+  const filterParam = searchParams.get('filter');
   
   const getCat = (name: string) => messages?.Shop?.categories?.[name] ? t(`categories.${name}`) : name;
   const getProd = (name: string) => messages?.Shop?.products?.[name] ? t(`products.${name}`) : name;
@@ -39,6 +42,10 @@ export default function Shop() {
       quantity: 1
     });
   };
+
+  const displayedProducts = filterParam
+    ? mockProducts.filter(p => p.name.toLowerCase().includes(filterParam.toLowerCase()) || p.category.toLowerCase().includes(filterParam.toLowerCase()))
+    : mockProducts;
 
   return (
     <div className="bg-[var(--color-brand-cream)] min-h-screen">
@@ -69,7 +76,7 @@ export default function Shop() {
                   <ul className="space-y-2">
                     {cat.items.map((item, i) => (
                       <li key={i}>
-                        <Link href={`#`} className="text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-brand-saffron)] transition-colors">
+                        <Link href={`/shop?filter=${encodeURIComponent(item)}`} className={`text-sm transition-colors ${filterParam === item ? 'text-[var(--color-brand-saffron)] font-bold' : 'text-[var(--color-muted-foreground)] hover:text-[var(--color-brand-saffron)]'}`}>
                           {getProd(item)}
                         </Link>
                       </li>
@@ -91,7 +98,7 @@ export default function Shop() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mockProducts.map((product, idx) => (
+            {displayedProducts.length > 0 ? displayedProducts.map((product, idx) => (
               <motion.div 
                 key={product.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -132,7 +139,12 @@ export default function Shop() {
                   </span>
                 </div>
               </motion.div>
-            ))}
+            )) : (
+              <div className="col-span-full text-center py-20">
+                <p className="text-gray-500 text-lg mb-4">No products found for "{filterParam}"</p>
+                <Link href="/shop" className="text-[var(--color-brand-saffron)] font-bold hover:underline">Clear Filter</Link>
+              </div>
+            )}
           </div>
         </main>
 
