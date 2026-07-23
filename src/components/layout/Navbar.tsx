@@ -14,6 +14,8 @@ export default function Navbar() {
   const currency = useCartStore((state) => state.currency);
   const setCurrency = useCartStore((state) => state.setCurrency);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const [isCurrMenuOpen, setIsCurrMenuOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -60,38 +62,44 @@ export default function Navbar() {
           {/* Icons & Language */}
           <div className="flex items-center space-x-4 md:space-x-6 h-full text-[var(--color-brand-green)]">
             
-            {/* Language Switcher (Desktop) */}
-            <div className="relative group h-full hidden md:flex items-center">
-              <button className="text-xs font-bold tracking-widest uppercase hover:text-[var(--color-brand-saffron)] flex items-center gap-1 transition-colors">
+            {/* Language Switcher (Desktop/Tablet) */}
+            <div className="relative h-full hidden md:flex items-center">
+              <button 
+                className="text-xs font-bold tracking-widest uppercase hover:text-[var(--color-brand-saffron)] flex items-center gap-1 transition-colors"
+                onClick={() => { setIsLangMenuOpen(!isLangMenuOpen); setIsCurrMenuOpen(false); }}
+              >
                 <Globe className="w-4 h-4" /> EN
               </button>
-              <div className="absolute top-full right-0 mt-0 pt-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto">
-                <div className="bg-white border border-[var(--color-brand-gold)]/30 rounded-sm shadow-xl flex flex-col py-2 w-36">
+              {isLangMenuOpen && (
+                <div className="absolute top-full right-0 mt-4 bg-white border border-[var(--color-brand-gold)]/30 rounded-sm shadow-xl flex flex-col py-2 w-36 z-50">
                   <a href="/en" className="px-4 py-2 text-xs font-medium hover:bg-[var(--color-brand-cream)] text-gray-800 transition-colors">English</a>
                   <a href="/mr" className="px-4 py-2 text-xs font-medium hover:bg-[var(--color-brand-cream)] text-gray-800 transition-colors">मराठी (Marathi)</a>
                   <a href="/hi" className="px-4 py-2 text-xs font-medium hover:bg-[var(--color-brand-cream)] text-gray-800 transition-colors">हिंदी (Hindi)</a>
                 </div>
-              </div>
+              )}
             </div>
 
-            {/* Currency Switcher (Desktop) */}
-            <div className="relative group h-full hidden md:flex items-center">
-              <button className="text-xs font-bold tracking-widest uppercase hover:text-[var(--color-brand-saffron)] flex items-center gap-1 transition-colors">
+            {/* Currency Switcher (Desktop/Tablet) */}
+            <div className="relative h-full hidden md:flex items-center">
+              <button 
+                className="text-xs font-bold tracking-widest uppercase hover:text-[var(--color-brand-saffron)] flex items-center gap-1 transition-colors"
+                onClick={() => { setIsCurrMenuOpen(!isCurrMenuOpen); setIsLangMenuOpen(false); }}
+              >
                 {mounted ? currency : 'INR'}
               </button>
-              <div className="absolute top-full right-0 mt-0 pt-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto">
-                <div className="bg-white border border-[var(--color-brand-gold)]/30 rounded-sm shadow-xl flex flex-col py-2 w-24">
+              {isCurrMenuOpen && (
+                <div className="absolute top-full right-0 mt-4 bg-white border border-[var(--color-brand-gold)]/30 rounded-sm shadow-xl flex flex-col py-2 w-24 z-50">
                   {(['INR', 'USD', 'AED', 'GBP', 'AUD'] as const).map((curr) => (
                     <button 
                       key={curr}
-                      onClick={() => setCurrency(curr)}
+                      onClick={() => { setCurrency(curr); setIsCurrMenuOpen(false); }}
                       className="px-4 py-2 text-xs text-left font-medium hover:bg-[var(--color-brand-cream)] text-gray-800 transition-colors"
                     >
                       {curr}
                     </button>
                   ))}
                 </div>
-              </div>
+              )}
             </div>
 
             <button aria-label="Search" className="hover:text-[var(--color-brand-saffron)] transition-colors">
