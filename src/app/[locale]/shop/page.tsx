@@ -99,7 +99,7 @@ export default function Shop() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="group cursor-pointer"
               >
-                <div className="relative h-80 w-full overflow-hidden rounded-sm mb-4 shadow-md group-hover:shadow-xl transition-shadow bg-gray-100">
+                <Link href={`/shop/${product.slug}`} className="block relative h-80 w-full overflow-hidden rounded-sm mb-4 shadow-md group-hover:shadow-xl transition-shadow bg-gray-100">
                   <Image 
                     src={product.image} 
                     alt={product.name}
@@ -116,15 +116,17 @@ export default function Shop() {
                       {t('quick_add')}
                     </button>
                   </div>
-                </div>
+                </Link>
                 
                 <div>
                   <span className="text-[10px] uppercase tracking-widest text-[var(--color-brand-saffron)] font-semibold block mb-1">
                     {getCat(product.category)}
                   </span>
-                  <h3 className="text-lg font-mono text-[var(--color-brand-green)] mb-1 group-hover:text-[var(--color-brand-saffron)] transition-colors">
-                    {getProd(product.name)}
-                  </h3>
+                  <Link href={`/shop/${product.slug}`}>
+                    <h3 className="text-lg font-mono text-[var(--color-brand-green)] mb-1 group-hover:text-[var(--color-brand-saffron)] transition-colors">
+                      {getProd(product.name)}
+                    </h3>
+                  </Link>
                   <span className="text-sm font-semibold text-[var(--color-muted-foreground)]">
                     {formatPrice(product.price, currency)}
                   </span>
